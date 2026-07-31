@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REECS | 1 Energy Consultancy Corporation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-dark:#1C6D9E;
+    --blue-mid:#2b6f97;
+    --blue-link:#4a90d9;
+    --gold:#c9a227;
+    --green:#7ab648;
+    --ink:#1a1a1a;
+    --body-text:#4a4a4a;
+    --hairline:#e2e2e2;
+    --footer-h: 150px;
+    --header-h: 155px;
+  }
+  *{box-sizing:border-box;}
+  img{max-width:100%;}
+  html,body{
+    margin:0;padding:0;
+    height:100%;
+    width:100%;
+    overflow-x:hidden;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    color:var(--ink);
+    background:#fff;
+  }
+  .app{
+    height:100vh;
+    width:100vw;
+    display:flex;
+    flex-direction:column;
+  }
+
+  #page-teams .page{
+    padding:0;
+  }
+
+   #page-values .page{
+    padding:0;
+  }
+
+  /* ===== HEADER ===== */
+  header{
+    height:var(--header-h);
+    flex:0 0 var(--header-h);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 40px;
+    border-bottom:1px solid var(--hairline);
+    position:relative;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    cursor:pointer;
+  }
+  .hex{
+    width:300px;height:150px;
+    max-width:300px;
+  }
+  .brand-text .name{
+    font-family: "Alegreya Sans", sans-serif;
+    font-size:40px;
+    font-weight:800;
+    line-height:1;
+    color:var(--ink);
+  }
+  .brand-text .sub{
+    font-size:10px;
+    color:#888;
+    line-height:1.2;
+    margin-top:2px;
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    gap:26px;
+    flex-wrap:wrap;
+  }
+  nav button.navlink{
+    background:none;border:none;cursor:pointer;
+    font-size:18px;
+    font-weight:600;
+    color:#333;
+    padding:6px 2px;
+    border-bottom:2px solid transparent;
+    font-family:inherit;
+  }
+  nav button.navlink:hover{color:var(--blue-mid);}
+  nav button.navlink.active{
+    color:var(--blue-mid);
+    border-bottom-color:var(--blue-mid);
+  }
+  .socials{
+    display:flex;
+    gap:12px;
+    margin-left:8px;
+  }
+  .socials a{
+    width:22px;height:22px;
+    display:flex;align-items:center;justify-content:center;
+    color:#333;
+  }
+  .socials svg{width:18px;height:18px;fill:currentColor;}
+
+  /* ===== MAIN ===== */
+  main{
+    flex:1 1 auto;
+    min-height:0;
+    position:relative;
+  }
+  .page{
+    position:absolute;
+    inset:0;
+    display:none;
+    padding:10px 20px;
+    overflow:hidden;
+  }
+
+  #page-about.page.active{
+    padding:0;
+}
+
+  .page#page-about{
+    padding:0 !important;
+}
+#page-about.page{
+    padding:0 !important;
+}
+
+  .page.active{display:flex;flex-direction:column;}
+
+  .eyebrow{
+    text-transform:uppercase;
+    font-size:11px;
+    letter-spacing:1.5px;
+    color:var(--green);
+    font-weight:700;
+    margin:0 0 2px 0;
+  }
+  h1.page-title{
+    font-size:clamp(30px, 5vw, 60px);
+    margin:0 0 20px 0;
+    font-weight:700;
+    max-width:100%;
+    color: #1C6D9E;
+    line-height:1.1;
+  }
+
+  /* ---- Placeholder image block ---- */
+  .placeholder{
+    background:repeating-linear-gradient(135deg,#eef1f3,#eef1f3 10px,#e3e7ea 10px,#e3e7ea 20px);
+    border:1px dashed #b9c2c9;
+    color:#8b97a1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:0.5px;
+    border-radius:2px;
+  }
+
+  /* ===== HOME ===== */
+
+  .hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right bottom;
+}
+
+  #page-home{padding:0;}
+  .home-body{
+    position: relative;
+    flex:1 1 auto;
+    display:flex;
+    padding:36px 48px 12px 48px;
+    gap:20px;
+    min-height:0;
+    overflow: hidden;
+  }
+
+  .home-body > img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 60%; /* Takes up right 60% of screen */
+  object-fit: contain;
+  object-position: right center;
+  z-index: 1; /* Sits behind home-left */
+  pointer-events: none; /* Mouse clicks pass right through to text/buttons */
+}
+
+.home-left {
+  position: relative;
+  z-index: 2; /* Sits on top of the image */
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: clamp(40px, 7vh, 140px);
+  padding-bottom: 20px;
+  
+}
+
+/* Enhance title typography for better emphasis */
+.home-left h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(50px, 6vw, 92px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin: 0 0 10px 0;
+  color: #111;
+}
+
+.home-left p.tag {
+  font-size: clamp(20px, 1.6vw, 24px);
+  font-weight: 500;
+  color: black;
+  margin: 0 0 28px 0;
+  max-width: 1000px;
+}
+ .learn-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+  margin-left: 405px;
+  background: #fff;
+  border: 1px solid #030303;
+  border-radius: 6px;
+  color: #333;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 18px 20px;
+  cursor: pointer;
+  font-family: inherit;
+ 
+  /* Smooth animation */
+  transition:
+  background-color 0.35s ease,
+  border-color 0.35s ease,
+  color 0.35s ease,
+  transform 0.2s ease,
+  box-shadow 0.3s ease;
+}
+
+.learn-btn:hover {
+  border-color: var(--blue-mid);
+  color: var(--blue-mid);
+  background-color: #eceef0e7;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.learn-btn:active {
+  transform: translateY(0);
+  background-color: #bfc5ca;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+  .stat-block{margin-top:0;}
+  .stat-block .label{font-size:23px;color:#333;margin-bottom:2px;}
+  .stat-block .num
+  {
+  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-size: 38px;
+  font-weight: 400; /* Regular weight */
+  color: #C4C140;   /* Matching yellow-green hex */
+  line-height: 1;}
+  .stat-block .cap{font-size:19px;color:#000000;margin-top:4px;}
+
+ footer.site-footer {
+  flex: 0 0 var(--footer-h);
+  height: var(--footer-h);
+  background: var(--blue-dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 54px; /* Slightly increased padding */
+}
+
+footer.site-footer .values-line {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-style: italic; /* or oblique */
+  font-size: 20px;
+  letter-spacing: 0.4px;
+}
+
+footer.site-footer .contact-line {
+  font-size: 13.5px; /* Increased from 12px */
+  text-align: right;
+  line-height: 1.6;
+}
+  footer.site-footer .contact-line a{color:#fff;text-decoration:none;}
+
+ /* ===== ABOUT SECTION ===== */
+
+ #page-about .page-title{
+    font-size:clamp(30px, 5vw, 56px);
+    margin-bottom:clamp(24px, 6vh, 80px);
+    margin-left: clamp(0px, 1vw, 6px);
+    line-height:1;
+    color:#4B78BF;
+}
+
+#page-about{
+    position:relative;
+    overflow-y:auto;
+    padding:0;
+}
+
+.about-wrap {
+  display: flex;
+  min-height: 100%;
+  flex-direction: row;     /* Two columns: left (text) and right (image) */
+  align-items: stretch;    /* Stretches image to match full height */
+  width: 100%;
+  height: 100%;
+   padding:0 0;  
+  margin: 0;          /* Removes outer padding so image touches top, right, bottom */
+}
+
+/* LEFT COLUMN: Paragraph Text */
+.about-text {
+  flex: 0 0 68%;           /* Takes 55% of the width */
+  padding:10px 30px 60px 30px;     /* Keeps internal padding so text doesn't touch screen edges */
+  line-height: 1.9;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center; /* Vertically centers the text block */
+  text-align: justify;
+  overflow-y: auto;        /* Allows scrolling if text exceeds viewport height */
+
+   
+  
+}
+
+.about-text p {
+  font-size: clamp(16px, 1.5vw, 24px);
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+
+/* RIGHT COLUMN: Image Container */
+.about-img {
+   flex:0 0 32%;
+    overflow:hidden;
+
+}
+
+/* Full Bleed Image */
+.about-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 15%;
+    display:block;
+}
+
+/* Parent Section Reset */
+#page-about {
+  height:100%;
+    padding:0;
+    overflow:hidden;
+}
+
+  /* ===== OUR VALUES ===== */
+
+#page-values{
+    padding:0;
+    overflow:hidden;
+}
+
+.values-wrap{
+    display:flex;
+    width:100%;
+    height:calc(100vh - var(--header-h));
+}
+
+/* LEFT IMAGE */
+
+.values-img{
+    flex:0 0 50%;
+    min-width:0;
+    height:100%;
+}
+
+.values-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* RIGHT CONTENT */
+
+.values-text{
+    flex:0 0 50%;
+    min-width:0;
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    padding:clamp(24px,4vh,40px) clamp(24px,6vw,80px);
+    overflow-y:auto;
+}
+
+.values-text h1{
+    font-size:clamp(30px, 4.5vw, 56px);
+    color:#4B78BF;
+    margin:0;
+    font-weight:700;
+}
+
+.values-text p{
+    margin-top:clamp(24px, 8vh, 120px);
+    font-size:clamp(14px, 1.6vw, 24px);
+    line-height:1.8;
+    color:#444;
+    text-align:justify;
+}
+
+  
+  /* ===========================
+      OUR TEAMS
+=========================== */
+
+#page-teams{
+    padding:0;
+}
+
+.teams-wrap{
+    display:flex;
+    height:calc(100vh - var(--header-h));
+    
+}
+
+/* LEFT */
+
+.teams-left{
+
+    width:50%;
+    min-width:0;
+    background:#fff;
+
+    display:flex;
+    flex-direction:column;
+
+    
+} 
+
+.teams-left .eyebrow{
+    margin:clamp(20px,3vh,35px) 0 0 clamp(30px,4vw,66px);
+    
+}
+
+.teams-left h1{
+
+    margin:clamp(5px,3vh,5px) 0 0 clamp(24px,4vw,60px);
+
+    font-size:clamp(28px, 4.5vw, 56px);
+
+    color:#4B78BF;
+
+    font-weight:700;
+}
+
+/* ORG CHART */
+
+.org-chart{
+
+    --org-gap: 90px;
+    --org-box: 250px;
+
+    flex:1;
+    width:100%;
+    min-width:0;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+}
+
+/* ROWS */
+
+.row{
+
+    display:flex;
+
+    gap:var(--org-gap);
+
+    position:relative;
+}
+
+.row-two{
+
+    margin-top:70px;
+}
+
+.row-three{
+
+    margin-top:95px;
+}
+
+/* BOXES */
+
+.member{
+
+    width:var(--org-box);
+
+    height:90px;
+
+    background:#fff;
+
+    border:1px solid #D8D8D8;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+}
+
+.member h3{
+
+    font-size:17px;
+
+    margin-bottom:8px;
+
+    font-weight:1000;
+
+}
+
+.member p{
+
+    font-size:12px;
+
+    margin:0;
+}
+
+.member span{
+
+    font-size:10px;
+}
+
+/* CEO BOX */
+
+.ceo{
+
+    position:relative;
+}
+
+/* vertical line */
+
+.ceo::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:90px;
+
+    width:2px;
+
+    height:70px;
+
+    background:#D8D8D8;
+}
+
+/* horizontal line */
+
+.row-two::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-35px;
+
+    left:calc(var(--org-box) / 2);
+
+    width:calc(var(--org-box) + var(--org-gap));
+
+    height:2px;
+
+    background:#D8D8D8;
+}
+
+/* left vertical */
+
+.row-two .member:first-child::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-35px;
+
+    left:50%;
+
+    width:2px;
+
+    height:35px;
+
+    background:#D8D8D8;
+}
+
+/* right vertical */
+
+.row-two .member:last-child::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-35px;
+
+    left:50%;
+
+    width:2px;
+
+    height:35px;
+
+    background:#D8D8D8;
+}
+
+/* center line */
+
+.row-three::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-200px;
+
+    left:50%;
+
+    width:2px;
+
+    height:157px;
+
+    background:#D8D8D8;
+}
+
+/* bottom horizontal */
+
+.row-three::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-45px;
+
+    left:calc(var(--org-box) / 2);
+
+    width:calc(var(--org-box) + var(--org-gap));
+
+    height:2px;
+
+    background:#D8D8D8;
+}
+
+/* bottom left vertical */
+
+.row-three .member:first-child::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-45px;
+
+    left:50%;
+
+    width:2px;
+
+    height:45px;
+
+    background:#D8D8D8;
+}
+
+/* bottom right vertical */
+
+.row-three .member:last-child::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-45px;
+
+    left:50%;
+
+    width:2px;
+
+    height:45px;
+
+    background:#D8D8D8;
+}
+
+/* RIGHT */
+
+.teams-right{
+
+    width:50%;
+    min-width:0;
+}
+
+.teams-right img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+  /* ===== SERVICES ===== */
+
+  #page-services{
+    overflow-y:auto;
+    padding:clamp(20px,4vh,40px) clamp(20px,5vw,70px) 60px;
+}
+
+#page-services .page-title{
+    font-size:clamp(30px, 5vw, 56px);
+    color:#4B78BF;
+    margin-left:clamp(20px,4vw,43px);
+  }
+
+ #page-services .services-intro{
+    margin-left:clamp(20px,4vw,43px);
+}
+
+#page-services .eyebrow{
+    margin-left:clamp(20px,4vw,43px);
+    margin-top:10px;
+}
+
+.services-wrap{
+    width:100%;
+    max-width:1800px;
+    margin:0 auto;
+    
+    
+    
+}
+
+  .services-intro{
+    font-size:clamp(14px, 1.6vw, 21px);
+    color:black;
+    
+    max-width:1000px;
+    line-height:1.6;
+  }
+  .services-grid{
+    flex:1 1 auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows: auto auto;
+
+    column-gap:clamp(20px,3vw,40px);
+    row-gap:18px;
+    min-height:0;
+    padding: 0 clamp(20px,4vw,48px) 36px clamp(20px,4vw,48px);
+   
+    
+  }
+  .service-col{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+  .service-col h3{
+    font-size:clamp(20px, 2.6vw, 40px);
+    color:var(--blue-mid);
+    margin:0 0 10px 0;
+    font-weight:200;
+  }
+  .service-col ul{
+    margin:0;padding:0 0 0 18px;
+    list-style:disc;
+    font-size:clamp(13px, 1.4vw, 23px);
+    color:#333;
+    line-height:1.0;
+  }
+  .service-col li{
+    margin-bottom:6px;
+  }
+
+  /* ==========================
+      PROJECT PORTFOLIO
+========================== */
+
+#page-portfolio{
+
+    padding:0;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    background:#fff;
+}
+
+#page-portfolio .page-title{
+
+    padding: 0;
+    font-size:56px;
+}
+
+
+.portfolio-container{
+    width:100%;
+    max-width:1800px;
+    margin:0 auto;
+    padding:35px clamp(20px,4vw,60px) 70px;
+}
+
+
+
+.portfolio-container .eyebrow{
+
+    color:#82b548;
+
+    font-size:12px;
+
+    font-weight:500;
+}
+
+.portfolio-container .page-title{
+    font-size:clamp(32px, 5.5vw, 72px);
+    color:#4B78BF;
+    margin-bottom:18px;
+}
+
+.portfolio-intro{
+    font-size:clamp(16px, 1.4vw, 20px);
+    line-height:1.6;
+    max-width:1500px;
+}
+
+.portfolio-total{
+    font-size:clamp(14px, 1.4vw, 18px);
+    margin:30px 0 35px;
+}
+
+/* -------------------- */
+
+
+.portfolio-layout{
+    display:grid;
+    grid-template-columns:40% 20% 40%;
+    gap:15px;
+    align-items:stretch;
+}
+
+/* LEFT IMAGE */
+
+.portfolio-big{
+    grid-column:1;
+    grid-row:1 / span 2;
+    min-height:470px;
+}
+
+.portfolio-big img{
+    width:100%;
+    height:97%;
+    object-fit:cover;
+    display:block;
+}
+
+.image-column{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    min-width:0;
+}
+
+.image-column img{
+    width:100%;
+    height:100%;
+    flex:1;
+    object-fit:cover;
+    display:block;
+}
+
+.portfolio-trusted{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    padding-left:15px;
+    min-width:0;
+}
+
+.portfolio-trusted h3{
+    color:#89B53E;
+    font-size:28px;
+    font-weight:300;
+    margin:10px 0;
+}
+
+.portfolio-trusted p{
+    font-size:20px;
+    line-height:1.5;
+    margin-bottom:20px;
+}
+
+.logo-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    align-items:center;
+}
+
+.logo-grid img{
+    width:100%;
+    max-height:42px;
+    object-fit:contain;
+}
+
+
+.trusted .eyebrow{
+    font-size:20px;
+    color:#82b548;
+    text-transform:none;
+    letter-spacing:0;
+    margin-bottom:18px;
+}
+
+.trusted p{
+    font-size:18px;
+    line-height:1.45;
+    color:#444;
+    margin-bottom:22px;
+}
+
+.logo-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px 18px;
+    align-items:center;
+}
+
+.logo-grid img{
+    width:100%;
+    max-height:42px;
+    object-fit:contain;
+}
+/* -------------------- */
+
+.project-gallery{
+    margin-top:70px;
+
+    display:grid;
+
+    grid-template-columns:2fr 1.15fr 2fr 1.15fr;
+
+    grid-template-rows:400px 400px;
+
+    gap:8px;
+}
+
+.project-gallery img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+  /* ====================================
+   CONTACT SECTION
+==================================== */
+
+#page-contact{
+    padding:clamp(20px,4vh,40px) clamp(20px,5vw,70px) 60px;
+    background:#fff;
+    overflow-y:auto;
+}
+
+
+
+#page-contact .eyebrow{
+    color:#8DB441;
+    font-size:14px;
+    font-weight:500;
+    text-transform:none;
+    letter-spacing:0;
+    margin-bottom:2px;
+}
+
+#page-contact .page-title{
+    font-size:clamp(30px, 5vw, 56px);
+    color:#4B78BF;
+    margin:0 0 clamp(24px,6vh,55px);
+    line-height:1;
+}
+
+.contact-intro{
+    font-size:18px;
+    color:#444;
+    margin-bottom:40px;
+}
+
+.contact-wrap{
+    display:grid;
+    grid-template-columns:34% 60%;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:5px;
+}
+
+/* =======================
+   LEFT SIDE
+======================= */
+
+.contact-left{
+    padding-top:6px;
+    min-width:0;
+}
+
+.contact-left h3{
+    font-size:25px;
+    margin-bottom:50px;
+    color:#1d2230;
+}
+
+.cinfo{
+    margin-bottom:45px;
+}
+
+.clabel{
+    font-size:14px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#9aa5bb;
+    margin-bottom:12px;
+    font-weight:700;
+}
+
+.cval{
+    font-size:20px;
+    color:#1d2230;
+    line-height:1.5;
+}
+
+/* =======================
+   FORM
+======================= */
+
+.contact-right{
+    width:100%;
+    min-width:0;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px 35px;
+}
+
+.field label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    color:#A8B4C7;
+    text-transform:uppercase;
+    margin-bottom:16px;
+}
+
+.field input,
+.field select,
+.field textarea{
+
+    width:100%;
+
+    border:none;
+
+    border-bottom:2px solid #E4E7EC;
+
+    background:none;
+
+    padding:10px 0 14px;
+
+    font-size:18px;
+
+    color:#555;
+
+    font-family:inherit;
+}
+
+.field textarea{
+
+    resize:none;
+
+    height:120px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+
+    outline:none;
+
+    border-color:#4B78BF;
+}
+
+.field.full{
+
+    grid-column:1 / 3;
+}
+
+.submit-btn{
+
+    margin-top:20px;
+
+    background:#12233F;
+
+    color:#fff;
+
+    border:none;
+
+    padding:15px 32px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.submit-btn:hover{
+
+    background:#4B78BF;
+}
+
+/* ============================================================
+   RESPONSIVE SYSTEM
+   Mobile-first overrides layered on top of the desktop defaults
+   above. Breakpoints:
+     <=480    small phone
+     <=767    phone
+     768-1024 tablet
+     1025-1279 small laptop / squeeze zone for two-column sections
+     1280-1440 laptop
+     1441-1920 desktop
+     >=1921   ultra-wide
+   ============================================================ */
+
+/* ---------- Phone (<=767px) ---------- */
+@media (max-width:767px){
+  html,body{ overflow-x:hidden; overflow-y:auto; }
+  .app{ height:auto; min-height:100vh; width:100%; }
+  main{ position:static; overflow:visible; }
+  .page{ position:static; display:none; padding:20px; overflow:visible; }
+  .page.active{ display:flex; }
+
+  header{
+    height:auto; flex:0 0 auto;
+    flex-direction:column;
+    padding:16px;
+    gap:14px;
+  }
+  .hex{  width:300px;height:150px;}
+  nav{ gap:10px 14px; justify-content:center; }
+  nav button.navlink{ font-size:13px; padding:4px 6px; }
+  .socials{ margin-left:0; }
+
+  .eyebrow{ font-size:10px; }
+
+  /* Home */
+  #page-home.page.active{ padding:0; }
+  .home-body{
+    flex-direction:column;
+    padding:24px 20px 20px;
+    gap:24px;
+    overflow:visible;
+  }
+  .home-body > img{
+    position:relative; z-index:0;
+    width:100%; height:auto; max-height:260px;
+    object-fit:contain; object-position:center;
+  }
+  .home-left{ gap:24px; justify-content:flex-start; padding-bottom:0; }
+  .learn-btn{ align-self:center; text-align:center; padding:16px 24px; font-size:12px; }
+  .stat-block .label{ font-size:16px; }
+  .stat-block .num{ font-size:26px; }
+  .stat-block .cap{ font-size:13px; }
+  footer.site-footer{
+    height:auto; flex-direction:column;
+    padding:20px; text-align:center; gap:10px;
+  }
+  footer.site-footer .contact-line{ text-align:center; }
+  footer.site-footer .values-line{ font-size:14px; }
+
+  /* About */
+  .about-wrap{ flex-direction:column; height:auto; min-height:0; }
+  .about-text{ flex:none; width:100%; padding:24px 20px; order:2; }
+  .about-img{ flex:none; width:100%; height:100%; order:1; }
+  #page-about .page-title{ margin-bottom:16px; }
+
+  /* Values */
+  #page-values .page{ overflow-y:auto; }
+  .values-wrap{ flex-direction:column; height:auto; }
+  .values-img{ flex:none; width:100%; height:220px; }
+  .values-text{ flex:none; width:100%; padding:24px 20px; overflow:visible; }
+  .values-text p{ margin-top:20px; }
+
+  /* Teams */
+  #page-teams .page{ overflow-y:auto; }
+  .teams-wrap{ flex-direction:column; height:auto; }
+  .teams-left{ width:100%; min-width:0; }
+  .teams-left h1{ margin:20px 0 0 20px; }
+  .org-chart{ --org-gap:14px; --org-box:120px; padding:30px 10px 40px; }
+  .member{ height:auto; min-height:70px; padding:8px; }
+  .member h3{ font-size:12px; }
+  .member p{ font-size:9px; }
+  .member span{ font-size:8px; }
+  .teams-right{ width:100%; min-width:0; height:100%; }
+
+  /* Services */
+  #page-services .page-title,
+  #page-services .services-intro,
+  #page-services .eyebrow{ margin-left:0; }
+  .services-grid{
+    grid-template-columns:1fr;
+    padding:0 4px 24px;
+    row-gap:22px;
+  }
+
+  /* Portfolio */
+  .portfolio-container{ padding:24px 16px 40px; }
+  .portfolio-layout{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  .portfolio-big{ grid-column:1; grid-row:auto; min-height:220px; }
+  .portfolio-big img{ height:220px; }
+  .image-column{ flex-direction:row; gap:12px; }
+  .image-column img{ height:160px; }
+  .portfolio-trusted{ padding-left:0; }
+  .logo-grid{ grid-template-columns:repeat(3,1fr); gap:10px; }
+  .project-gallery{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:repeat(4,180px);
+    gap:6px;
+    margin-top:36px;
+  }
+
+  /* Contact */
+  .contact-wrap{ grid-template-columns:1fr; gap:32px; }
+  .contact-left{ padding-top:0; }
+  .form-grid{ grid-template-columns:1fr; gap:16px; }
+  .field.full{ grid-column:1; }
+}
+
+/* ---------- Tablet (768px-1024px) ---------- */
+@media (min-width:768px) and (max-width:1024px){
+  header{ padding:0 24px; }
+  .hex{ width:300px;height:150px; margin-right:10px; }
+  nav{ gap:14px; }
+  nav button.navlink{ font-size:14px; }
+
+  .home-body{ padding:28px 32px 12px; gap:16px; }
+  .home-body > img{ width:65%; }
+
+  .about-text{ flex:0 0 58%; padding:20px 24px 40px; margin-top: 30px; }
+  .about-img{ flex:0 0 42%; }
+
+  .values-text{ padding:28px 32px; }
+
+  .teams-left h1{ margin:24px 0 0 32px; }
+  .org-chart{ --org-gap:36px; --org-box:170px; }
+  .member{ height:auto; min-height:80px; }
+  .member p{ font-size:11px; }
+
+  .services-grid{ grid-template-columns:repeat(2,1fr); padding:0 24px 24px; column-gap:24px; row-gap:20px; }
+
+  .portfolio-container{ padding:28px 24px 50px; }
+  .portfolio-layout{ grid-template-columns:1fr 1fr; }
+  .portfolio-big{ grid-column:1 / span 2; grid-row:1; min-height:320px; }
+  .image-column{ grid-column:1; flex-direction:row; }
+  .image-column img{ height:200px; }
+  .portfolio-trusted{ grid-column:2; padding-left:20px; }
+  .logo-grid{ grid-template-columns:repeat(4,1fr); }
+  .project-gallery{ grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(4,240px); }
+
+  .contact-wrap{ grid-template-columns:38% 58%; gap:24px; }
+}
+
+/* ---------- Small laptop squeeze zone (1025px-1279px) ---------- */
+@media (min-width:1025px) and (max-width:1279px){
+  .org-chart{ --org-gap:50px; --org-box:190px; }
+  .member p{ font-size:11px; }
+  .services-grid{ column-gap:26px; }
+  .portfolio-layout{ grid-template-columns:38% 22% 40%; }
+}
+
+/* ---------- Laptop (1025px-1440px) ---------- */
+@media (min-width:1025px) and (max-width:1440px){
+  header{ padding:0 30px; }
+  .hex{ width:300px;height:150px; margin-right:10px; }
+  .page{ padding:10px 30px; }
+  .about-wrap{ padding:0; }
+  .services-grid{ padding:0 30px 30px 30px; }
+}
+
+/* ---------- Desktop (1441px-1920px) ---------- */
+@media (min-width:1441px){
+  header{ padding:0 60px; }
+  .page{ padding:0; }
+  .services-grid{ padding:0 60px 48px 60px; }
+}
+
+/* ---------- Ultra-wide (>=1921px) ---------- */
+/* Covers 2560 / 3440 / 3840 monitors. Full-bleed backgrounds/images
+   (footer bar, about-img, values-img, teams-right) are left untouched
+   so they keep spanning 100% of the viewport. Everything below only
+   constrains the *content* (text + grids) to a readable max-width and
+   centers it, per section, without touching mobile/tablet/laptop rules
+   above. */
+@media (min-width:1921px){
+  header > .brand, header > nav{ max-width:1800px; }
+  header{ justify-content:center; gap:120px; }
+  .home-body{ max-width:1900px; margin:0 auto; }
+  .services-grid{ max-width:1600px; margin:0 auto; padding-left:60px; padding-right:60px; }
+  .portfolio-container{ max-width:1900px; }
+  .contact-wrap{ max-width:1500px; margin:0 auto; }
+  h1.page-title{ font-size:76px; }
+
+  /* About Us: right-side photo (.about-img) stays full-bleed edge-to-edge.
+     The left text column can be 2500px+ wide at 3840px, so cap the
+     paragraph width and center it inside the column for readability. */
+  .about-text{ align-items:center; }
+  .about-text .page-title,
+  .about-text p{ max-width:820px; width:100%; }
+
+  /* Our Values: left-side photo (.values-img) stays full-bleed.
+     Cap the right text column's line length; it stays left-aligned
+     since it already sits flush against the image, like a reading pane. */
+  .values-text h1,
+  .values-text p{ max-width:760px; }
+
+  
+}
+
+/* Mobile / Small screen defaults stay untouched */
+
+/* Desktop / Widescreen adjustments */
+
+
+@media (max-width: 1024px) {
+  .learn-btn {
+    margin-left: 0;        
+          }
+}
+
+/* ---------- Short-viewport safety net (applies at any width) ---------- */
+@media (max-height:640px) and (min-width:768px){
+  :root{ --header-h:100px; --footer-h:110px; }
+  .home-left{ gap:20px; }
+  .values-text p{ margin-top:24px; }
+  .values-wrap, .teams-wrap{ overflow-y:auto; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="brand" onclick="showPage('home')">
+      <img src="assets/images/reecs-logo.webp" alt="REECS Logo" class="hex">
+      
+    </div>
+    <nav id="navlinks">
+      <button class="navlink" data-page="home">Home</button>
+      <button class="navlink" data-page="about">About Us</button>
+      <button class="navlink" data-page="values">Our Values</button>
+      <button class="navlink" data-page="teams">Our Teams</button>
+      <button class="navlink" data-page="services">Our Services</button>
+      <button class="navlink" data-page="portfolio">Portfolio</button>
+      <button class="navlink" data-page="contact">Contacts</button>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.25.07 1.62.07 4.81s-.01 3.56-.07 4.81c-.15 3.23-1.66 4.77-4.92 4.92-1.25.06-1.62.07-4.85.07s-3.6-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.25-.07-1.62-.07-4.81s.01-3.56.07-4.81c.15-3.23 1.66-4.77 4.92-4.92C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5 0-4.74.07-2.36.1-3.47 1.24-3.57 3.57C3.62 8.86 3.62 9.2 3.62 12s0 3.14.07 4.36c.1 2.35 1.2 3.48 3.57 3.58C8.5 20.01 8.86 20 12 20s3.5 0 4.74-.06c2.36-.1 3.48-1.23 3.57-3.58.07-1.22.07-1.57.07-4.36s0-3.14-.07-4.36c-.09-2.34-1.21-3.47-3.57-3.57C15.5 4 15.14 4 12 4zm0 3.7A4.3 4.3 0 1 1 7.7 12 4.3 4.3 0 0 1 12 7.7zm0 1.8a2.5 2.5 0 1 0 2.5 2.5A2.5 2.5 0 0 0 12 9.5zm4.5-2.1a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.75h4V21H3zM9.5 9.75h3.83v1.54h.05c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.66 4.8 6.12V21h-4v-4.86c0-1.16-.02-2.65-1.62-2.65-1.62 0-1.87 1.27-1.87 2.57V21h-4z"/></svg></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+
+    <!-- HOME -->
+    <section id="page-home" class="page active">
+      <div class="home-body">
+        <div class="home-left">
+          <div class="home-heading">
+            <h1>Engineering the Grid of Tomorrow</h1>
+            <p class="tag">Innovative, Reliable, and Sustainable Solutions for the Electric Power Industry</p>
+            <button class="learn-btn" onclick="showPage('about')">LEARN ABOUT US</button>
+          </div>
+         
+          <div class="stat-block">
+            <div class="label">Portfolio</div>
+            <div class="num">4.82 GW+</div>
+            <div class="cap">Renewable Energy, Battery Storage and Conventional Power</div>
+          </div>
+        </div>
+
+        <img src="assets/images/reecs-home-bg.png" alt="hero Background" >
+      </div>
+      <footer class="site-footer">
+        <div class="values-line">Excellence. Integrity. Innovation. Collaboration. Sustainability. Commitment.</div>
+        <div class="contact-line">
+          <a href="http://www.reecs.ph" target="_blank">http://www.reecs.ph</a><br>
+          <a href="mailto:rfalbano@reecs.ph">rfalbano@reecs.ph</a>
+        </div>
+      </footer>
+    </section>
+
+    <!-- ABOUT US -->
+<section id="page-about" class="page">
+  <div class="about-wrap">
+    
+    <!-- LEFT COLUMN: Heading + Paragraphs -->
+    <div class="about-text">
+      <!-- <div class="eyebrow">Inquiries</div> -->
+      <h1 class="page-title">About Us</h1>
+      <p>
+        <b style="color:#585858">REECS 1Energy Corporation</b> is a DTI-registered energy consultancy firm established in 2016 by a team of seasoned professionals with extensive experience in power system operations and the electricity market. REECS provides specialized expertise in transmission and distribution system operations and maintenance, grid capacity assessment, power system studies, energy market operations, billing and settlement, WESM BCQ declaration, variable renewable energy (VRE) forecasting, demand-side management, demand aggregation, grid compliance testing, and renewable energy project development.<br>
+      
+      
+        The firm supports Distribution Utilities, Electric Cooperatives, Generation Companies, Contestable Customers, and other grid-connected entities through technical and non-technical advisory services, financial projections, and business and commercial modeling.<br>
+        Backed by a strong project track record and a highly competent team, REECS is committed to building long-term partnerships by delivering reliable, cost-effective, and high-quality consultancy services.<br>
+      
+      
+        As a responsible energy consultancy, REECS fully supports the government's initiatives to accelerate the adoption of clean and renewable energy, contributing to a sustainable and decarbonized energy future.
+      </p>
+    </div>
+
+    <!-- RIGHT COLUMN: Edge-to-Edge Image -->
+    <div class="about-img">
+      <img src="assets/images/founder-albano.webp" alt="Executive Photo">
+    </div>
+
+  </div>
+  </section>
+
+    <!-- OUR VALUES -->
+    <section id="page-values" class="page">
+
+    <div class="values-wrap">
+
+        <div class="values-img">
+            <img src="assets/images/company-values-img.png" alt="Company Values">
+        </div>
+
+        <div class="values-text">
+            <!-- <div class="eyebrow">Inquiries</div> -->
+            <h1>Our Values</h1>
+
+            <p>
+                Our values define who we are and guide every project we
+                undertake. We are committed to excellence by delivering
+                high-quality, reliable, and innovative engineering solutions.
+                We uphold the highest standards of integrity,
+                professionalism, and accountability in all our work.
+                Through collaboration and trusted partnerships, we create
+                practical and cost-effective solutions that meet our clients'
+                needs. We embrace continuous learning and innovation to
+                address the evolving challenges of the energy sector while
+                promoting sustainability and supporting the transition to a
+                cleaner, more resilient, and decarbonized energy future.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- OUR TEAMS -->
+    <section id="page-teams" class="page">
+
+    <div class="teams-wrap">
+
+        <!-- LEFT -->
+        <div class="teams-left">
+
+            <!-- <div class="eyebrow">Inquiries</div> -->
+
+            <h1>Our Teams</h1>
+
+            <div class="org-chart">
+
+                <!-- CEO -->
+                <div class="ceo">
+                    <div class="member ceo-box">
+                        <h3>Reggie F. Albaño</h3>
+                        <p>Founder & Chief Executive Officer</p>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="row row-two">
+
+                    <div class="member">
+                        <h3>Charles J. Romanillos</h3>
+                        <p>Vice President</p>
+                        <span>Marketing & Business Development</span>
+                    </div>
+
+                    <div class="member">
+                        <h3>Ericson Durens Cayasan</h3>
+                        <p>Power System Consultant</p>
+                    </div>
+
+                </div>
+
+                <!-- Row 3 -->
+                <div class="row row-three">
+
+                    <div class="member">
+                        <h3>Bjorn F. Albaño</h3>
+                        <p>Data & Analytics</p>
+                    </div>
+
+                    <div class="member">
+                        <h3>Jancar C. Lopez</h3>
+                        <p>Power System Engineer</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="teams-right">
+
+            <img src="assets/images/company-teams-img.png"
+                 alt="Our Team">
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- OUR SERVICES -->
+    <section id="page-services" class="page">
+      <div class="services-wrap">
+
+         <div class="eyebrow">What We Do</div>
+      <h1 class="page-title">Our Services</h1>
+      <p class="services-intro">Specialized expertise spanning transmission, distribution, modeling, verification, engineering studies, and business development.</p>
+      <div class="services-grid">
+        <div class="service-col">
+          <h3>Transmission</h3>
+          <ul>
+            <li>Generation Interconnection Studies</li>
+            <li>Feasibility and Impact Studies</li>
+            <li>Transmission Planning</li>
+            <li>Power System Dynamics</li>
+            <li>Capacity Screening</li>
+            <li>Voltage Control and Reactive Power Planning</li>
+          </ul>
+        </div>
+        <div class="service-col">
+          <h3>Model Development</h3>
+          <ul>
+            <li>Models for conventional and inverter-based resources</li>
+            <li>PSSE and PSCAD Benchmarking Studies</li>
+            <li>Power Factory</li>
+            <li>PVsyst</li>
+          </ul>
+        </div>
+        <div class="service-col">
+          <h3>Engineering and Special Studies</h3>
+          <ul>
+            <li>TOV and Breaker TRV Studies</li>
+            <li>Electromagnetic Transients</li>
+            <li>Insulation Coordination</li>
+            <li>Protection Systems</li>
+            <li>STATCOM Sizing and PID Tuning</li>
+            <li>Harmonics and Flicker</li>
+            <li>Energization Studies</li>
+          </ul>
+        </div>
+        <div class="service-col">
+          <h3>Distribution</h3>
+          <ul>
+            <li>Load Interconnection and Engineering Studies</li>
+            <li>Hosting Capacity and Screening</li>
+            <li>Distribution System Planning</li>
+            <li>Voltage Regulation</li>
+          </ul>
+        </div>
+        <div class="service-col">
+          <h3>Verification and Testing Services</h3>
+          <ul>
+            <li>Generator compliance verification</li>
+            <li>Grid facility testing</li>
+            <li>Performance testing</li>
+            <li>Protection system testing</li>
+            <li>Grid Code compliance</li>
+            <li>Commissioning support</li>
+            <li>Technical compliance reporting</li>
+          </ul>
+        </div>
+        <div class="service-col">
+          <h3>Business Development</h3>
+          <ul>
+            <li>Energy Trading Support</li>
+            <li>Business Development</li>
+          </ul>
+        </div>
+      </div>
+
+      </div>
+     
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="page-portfolio" class="page">
+
+<div class="portfolio-container">
+
+    <div class="eyebrow">Track Record</div>
+
+    <h1 class="page-title">Project Portfolio</h1>
+
+    <p class="portfolio-intro">
+        Our portfolio demonstrates extensive experience in the planning,
+        assessment, integration, testing, and commissioning of renewable
+        energy projects across the Philippines. Services include Philippine
+        Grid Code (PGC) Compliance Testing, System Impact Studies (Pre-SIS),
+        Grid Capacity Assessments, Grid Connection Assessments, Grid Curtailment
+        Studies, Reactive Power Assessments, Energy Trading Support,
+        Feasibility Studies (FS), Detailed Engineering Studies (DIS),
+        and Business Development.
+    </p>
+
+    <p class="portfolio-total">
+        Total Renewable Energy Portfolio:
+        Approximately 4.82 GW of generation projects evaluated,
+        tested, or developed.
+    </p>
+
+    <div class="portfolio-layout">
+
+        <div class="portfolio-big">
+            <img src="assets/images/portfolio9.png">
+        </div>
+
+        
+
+        <div class="image-column">
+          <img src="assets/images/portfolio10.png" alt="Wind Farm">
+          <img src="assets/images/portfolio11.png" alt="Solar Farm">
+        </div>
+
+        <div class="portfolio-trusted">
+
+            <h3>Trusted By</h3>
+
+            <p>
+                Serving leading utilities, cooperatives,
+                and renewable energy developers across the Philippines.
+            </p>
+
+            <div class="logo-grid">
+
+                <!-- logos -->
+
+            <img src="assets/images/biopower.webp">
+            <img src="assets/images/customer2.webp">
+            <img src="assets/images/customer3.webp">
+            <img src="assets/images/customer4.webp">
+
+            <img src="assets/images/customer5.webp">
+            <img src="assets/images/customer6.webp">
+            <img src="assets/images/customer7.webp">
+            <img src="assets/images/customer8.webp">
+
+            <img src="assets/images/customer9.webp">
+            <img src="assets/images/customer10.webp">
+            <img src="assets/images/customer11.webp">
+            <img src="assets/images/customer12.webp">
+
+            <img src="assets/images/customer13.webp">
+            <img src="assets/images/customer14.webp">
+            <img src="assets/images/customer15.webp">
+            <img src="assets/images/customer16.webp">
+            <img src="assets/images/customer17.webp">
+            <img src="assets/images/customer18.webp">
+            <img src="assets/images/customer19.webp">
+            <img src="assets/images/customer20.webp">
+            <img src="assets/images/customer21.webp">
+            <img src="assets/images/customer22.webp">
+            <img src="assets/images/customer23.webp">
+
+            </div>
+
+        </div>
+
+        
+
+        
+
+    </div>
+
+    <!-- PROJECT GALLERY -->
+          <div class="project-gallery">
+
+              <img src="assets/images/portfolio1.webp" alt="">
+              <img src="assets/images/portfolio2.webp" alt="">
+              <img src="assets/images/portfolio3.webp" alt="">
+              <img src="assets/images/portfolio4.webp" alt="">
+
+              <img src="assets/images/portfolio5.webp" alt="">
+              <img src="assets/images/portfolio6.webp" alt="">
+              <img src="assets/images/portfolio7.webp" alt="">
+              <img src="assets/images/portfolio8.webp" alt="">
+
+          </div>
+
+</div>
+
+</section>
+
+    <!-- CONTACTS -->
+    <section id="page-contact" class="page">
+
+    <div class="eyebrow">Inquiries</div>
+
+    <h1 class="page-title">Get in Touch</h1>
+
+    <p class="contact-intro">
+        Request consultancy services, grid connection studies,
+        or compliance testing. We'll respond promptly.
+    </p>
+
+    <div class="contact-wrap">
+
+        <!-- LEFT -->
+
+        <div class="contact-left">
+
+            <h3>Contact Information</h3>
+
+            <div class="cinfo">
+                <div class="clabel">Phone</div>
+                <div class="cval">+63 917 770 0572</div>
+            </div>
+
+            <div class="cinfo">
+                <div class="clabel">Email</div>
+                <div class="cval">rfalbano@reecs.ph</div>
+            </div>
+
+            <div class="cinfo">
+                <div class="clabel">Website</div>
+                <div class="cval">www.reecs.ph</div>
+            </div>
+
+            <div class="cinfo">
+                <div class="clabel">Location</div>
+                <div class="cval">
+                    Aurora, Zamboanga del Sur, Philippines
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="contact-right">
+
+           <form class="form-grid" id="enquiryForm" onsubmit="sendViaGmail(event)">
+
+    <div class="field">
+        <label>Full Name</label>
+        <input type="text" id="fullName" placeholder="Your name" required>
+    </div>
+
+    <div class="field">
+        <label>Company / Organization</label>
+        <input type="text" id="company" placeholder="Company name">
+    </div>
+
+    <div class="field">
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="you@company.com" required>
+    </div>
+
+    <div class="field">
+        <label>Phone Number</label>
+        <input type="text" id="phone" placeholder="+63 XXX XXX XXXX">
+    </div>
+
+    <div class="field full">
+        <label>Service Required</label>
+        <select id="service">
+            <option value="Not Specified">Select a service area</option>
+            <option value="Transmission">Transmission</option>
+            <option value="Distribution">Distribution</option>
+            <option value="Model Development">Model Development</option>
+            <option value="Verification and Testing Services">Verification and Testing Services</option>
+            <option value="Engineering and Special Studies">Engineering and Special Studies</option>
+            <option value="Business Development">Business Development</option>
+        </select>
+    </div>
+
+    <div class="field full">
+        <label>Project Details</label>
+        <textarea id="details" placeholder="Briefly describe your project or enquiry..."></textarea>
+    </div>
+
+    <div class="field full">
+        <button type="submit" class="submit-btn">
+            Submit Enquiry
+        </button>
+    </div>
+
+</form>
+
+        </div>
+
+    </div>
+
+</section>
+
+  </main>
+</div>
+
+<script>
+  function showPage(name){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('page-'+name).classList.add('active');
+    document.querySelectorAll('.navlink').forEach(b=>b.classList.remove('active'));
+    const btn = document.querySelector('.navlink[data-page="'+name+'"]');
+    if(btn) btn.classList.add('active');
+  }
+  document.querySelectorAll('.navlink').forEach(btn=>{
+    btn.addEventListener('click', ()=>showPage(btn.dataset.page));
+  });
+  showPage('home');
+
+
+  function sendViaGmail(event) {
+    event.preventDefault();
+
+    const fullName = document.getElementById('fullName').value;
+    const company = document.getElementById('company').value || 'N/A';
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value || 'N/A';
+    const service = document.getElementById('service').value;
+    const details = document.getElementById('details').value;
+
+    const recipient = "rfalbano@reecs.ph";
+    const subject = encodeURIComponent(`New Website Enquiry - ${fullName}`);
+
+    const bodyText = 
+`Full Name: ${fullName}
+Company: ${company}
+Email: ${email}
+Phone: ${phone}
+Service Required: ${service}
+
+Project Details:
+${details}`;
+
+    const body = encodeURIComponent(bodyText);
+
+    // Opens Gmail web compose window in a new tab
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
+    window.open(gmailUrl, '_blank');
+}
+
+</script>
+</body>
+</html>
